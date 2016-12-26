@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>SafEye</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <style>
             body {
                 font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -16,12 +17,17 @@
             }
         </style>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="../lib/jquery.min.js"></script>
+        <script src="../lib/myMailScan.json"></script>
         <script src="../lib/main.js"></script>
+        
     </head>
     <body>
         <h1>SafEye</h1>
-        <button id="alert">SafEye alert</button>
+        <table id='allPositiveTable' style="border:3px #cccccc solid;" cellpadding="10" border='1'>
+        </table>
+        <p><input type="text" name="url" value="" /></p>
+        <p><button id="scan">SafEye alert</button></p>
     </body>
 </html>
 

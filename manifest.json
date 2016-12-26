@@ -15,11 +15,14 @@
         "default_title": "SafEye"
     },
     "background": {
-        "scripts": ["background_scripts/main.js"],
+        "scripts": ["background_scripts/main.js",
+                    "lib/jquery.min.js"],
         "persistent": false
     },
     "permissions": [
         "activeTab",
+        "downloads",
+        "background",
         "https://ajax.googleapis.com/"
     ],
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
