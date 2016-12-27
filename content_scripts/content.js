@@ -1,10 +1,13 @@
 $(function() {
     var urls = {};
     $(document).ready(function() {
+
+
+        Materialize.toast('Start scanning ...', 2000);
+
         $('a', document).each(function(index, item) {
             var url = String($(item).attr('href'));
             if (url.length > 4 && url.slice(0,4) == 'http') {
-                // console.log(url);
                 urls[url] = url;
 
                 $.ajax({
@@ -24,9 +27,22 @@ $(function() {
                         var text = $(item).text();
 
                         if (data.positives == undefined && data.total == undefined && data.verbose_msg) {
-                            $(item).text(text + ' (' + data.verbose_msg + ')')
+                            Materialize.toast(url + ' : ' + data.verbose_msg, 4000);
                         } else {
-                            $(item).text(text + ' (' + data.positives + '/' + data.total + ')')
+                            if (data.positives > 0) {
+                                Materialize.toast('[alert!] ' + url + ' may damage your pc.', 4000);
+
+                                $(item).tooltip({
+                                    position: 'bottom',
+                                    delay: 50,
+                                    tooltip: 'This link might be danger! (' + data.positives + '/' + data.total + ')'
+                                }).css('background-color', '#d50000');
+
+                            } else {
+                                Materialize.toast('[safe] ' + url, 4000);
+
+                                $(item).text(text + ' (' + data.positives + '/' + data.total + ')');
+                            }
                         }
                     }
                 }).fail(function(error) {
@@ -36,7 +52,7 @@ $(function() {
             }
         });
 
-        console.log(urls);
+        Materialize.toast(Object.keys(urls).length + ' sites has been scanned.', 4000);
 
         function scanByItem(urls) {
             $.each(urls, function(index, item) {
