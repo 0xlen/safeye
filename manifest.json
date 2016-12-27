@@ -15,15 +15,19 @@
         "default_title": "SafEye"
     },
     "background": {
-        "scripts": ["background_scripts/main.js"],
+        "scripts": ["background_scripts/main.js",
+                    "lib/jquery.min.js"],
         "persistent": false
     },
     "content_scripts": [{
         "matches": ["<all_urls>"],
-        "js": ["lib/jquery.min.js", "content_scripts/content.js"]
+        "js": ["lib/jquery.min.js", "lib/materialize.min.js", "content_scripts/content.js"],
+        "css": ["assets/materialize.min.css"]
     }],
     "permissions": [
         "activeTab",
+        "downloads",
+        "background",
         "https://ajax.googleapis.com/"
     ],
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
