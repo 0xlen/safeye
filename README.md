@@ -16,13 +16,13 @@ git clone https://github.com/0xlen/safeye.git
 
 ## Configuration
 
-Open `content_scripts\content.js` then change **safeye-api url** (Line: 13)
+Open `content_scripts\content.js` then change **[safeye-api][safeye-api] url** (Line: 13)
 
 ```javascript
 url: 'http://127.0.0.1/safeye/api/url_scan.php',
 ```
 
-Open `background_scripts\main.js` then change **safeye-api url** (Line: 2)
+Open `background_scripts\main.js` then change **[safeye-api][safeye-api] url** (Line: 2)
 
 ```javascript
 url: 'http://127.0.0.1/safeye/api/url_scan.php',
@@ -66,3 +66,6 @@ If safeye works, you will see alert.
 ## References
 - [chrome extensions developer guide](https://developer.chrome.com/extensions/devguide)
 - [virustotal public api](https://www.virustotal.com/en/documentation/public-api/)
+
+[safeye]: https://github.com/0xlen/safeye
+[safeye-api]: https://github.com/0xlen/safeye-api
